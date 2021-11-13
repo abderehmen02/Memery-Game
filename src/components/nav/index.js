@@ -7,7 +7,6 @@ import CloudIcon from '@material-ui/icons/Cloud';
 import LocationCityIcon from '@material-ui/icons/LocationCity';
 import LocalHotelIcon from '@material-ui/icons/LocalHotel';
 function Nav() {
-    console.log(useLocation())
     const useStyles = makeStyles({
     Normal: {
 backgroundColor: 'white'
@@ -28,14 +27,14 @@ const location  = useLocation()
 <Link to='/weather' style={{textDecoration: 'none'}} >
     <Fab variant="extended"  className={location.pathname === '/weather' ? classes.LinkIn : classes.Normal } >
 <CloudIcon /> 
-Weather       
+Weather
     </Fab>
 </Link>
     </div>
     <div>
-<Link to='/Cities'  style={{textDecoration: 'none'}}  >    <Fab variant="extended" className={location.pathname === '/Cities' ? classes.LinkIn : classes.Normal } >
+<Link to='/Map'  style={{textDecoration: 'none'}}  >    <Fab variant="extended" className={location.pathname === '/Cities' ? classes.LinkIn : classes.Normal } >
 <LocationCityIcon/>
-Cites
+Map
     </Fab></Link></div>
     <div>
     <Link to='/Hotels' style={{textDecoration: 'none'}} >

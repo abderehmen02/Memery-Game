@@ -1,7 +1,8 @@
 import React from "react";
 import Weather from './weather'
 import './index.css'
-import Cyties from './cyties'
+import Hotels from './Hotels'
+import Map from './map'
 import Nav from './nav'
 // import CityWeather from "./weather/CityWeather";
 import {
@@ -12,26 +13,30 @@ import {
   useHistory,
   Link
 } from "react-router-dom";
+import { HotelDetails } from "./Hotels/data";
+import HotelDetailsComponent from "./Hotels/HotelDetails"
+
 
 function App() {
     const location = useHistory()
-    console.log(location)
     return (
         <div>
             <Router  >
             <div>
-<div className='weatherBk' ></div>
+<div className='weatherBk' style={{height: window.screen.height}} ></div>
 <Nav/>
 <Switch  >
-<Route path='/cyties' >
-<Cyties/>
-</Route>   
-                <Route exact path='/' ><div>this is the default</div></Route>
- <Route path='/weather'  >
+<Route path='/Map' >
+<Map/>
+</Route>
+<Route path='/hotelDetails/:id' >
+<HotelDetailsComponent/>
+</Route>
+<Route path='/Hotels' > <Hotels/> </Route>
+ <Route path='/'  >
 <Weather/>
                     </Route>
          
-
 </Switch>
 </div>
             </Router>

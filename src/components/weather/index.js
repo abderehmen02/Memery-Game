@@ -1,11 +1,10 @@
 import React , {useState , useEffect , useRef}from 'react'
 import fetchWeather from './data'
-import AirIcon from '@material-ui/icons/AirlineSeatReclineNormalOutlined';
-import LocationCityIcon from '@material-ui/icons/LocationCity';
 import AirplayIcon from '@material-ui/icons/Airplay';
+import LocationCityIcon from '@material-ui/icons/LocationCity';
+import ContactlessIcon from '@material-ui/icons/Contactless'
 import ReorderIcon from '@material-ui/icons/Reorder';
 import Dialog from '@material-ui/core/Dialog'
-import { db } from '../../firebase';
 import Rain from '../../Images/Rain.jpg'
 import Clouds from '../../Images/Clouds.jpg'
 import { Skeleton } from 'react-skeleton-generator'
@@ -13,7 +12,7 @@ import Clear from '../../Images/Clear.jpg'
 import './index.css'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 let temperaryOptions = []
-function index() {
+function Index() {
 const [CityName, setCityName] = useState('')
 const [Options, setOptions] = useState([])
 const [CityNameWeather, setCityNameWeather] = useState(false)
@@ -21,40 +20,38 @@ const [Details, setDetails] = useState(false)
 const CityInput = useRef(null)
 
 
-// componenets
-const DetailsComponent = ()=>{
+ // componenets
+const DetailsComponent = () => {
   return <div className='detailsComponents' > 
-    <nav className='DetailsNav' ><span onClick={()=>{setDetails('wind')}} >wind <AirIcon/> </span><span  onClick={()=>{setDetails('city')}}  >City <LocationCityIcon/> </span><span onClick={()=>{setDetails('temp')}} >temperature <AirplayIcon/> </span><span onClick={()=>{setDetails('others')}} >others <ReorderIcon/> </span></nav>
+    <nav className='DetailsNav' ><span onClick={()=>{setDetails('wind')}} >wind <ContactlessIcon/> </span><span  onClick={()=>{setDetails('city')}}  >City <LocationCityIcon/> </span><span onClick={()=>{setDetails('temp')}} >temperature <AirplayIcon/> </span><span onClick={()=>{setDetails('others')}} >others <ReorderIcon/> </span></nav>
     {Details === 'wind' && (<div className='DetailsInfo' >
-    degree:  {CityNameWeather.wind.deg}
-    speed: {CityNameWeather.wind.speed}
+   <div> degree:  {CityNameWeather.wind.deg}  </div>
+   <div> speed: {CityNameWeather.wind.speed}  </div>
     </div> )}
-    {Details === 'city' && <div>
-        Grand Level : {CityNameWeather.main.grnd_level}
-        Sea Level :{CityNameWeather.main.sea_level}
-        Latitude : {CityNameWeather.coord.lat}
-        Longitude: { CityNameWeather.coord.lon }
-        Country : {CityNameWeather.sys.country} 
+    {Details === 'city' && <div  className='DetailsInfo' >
+      <div>  Grand Level : {CityNameWeather.main.grnd_level}</div>
+      <div>  Sea Level :{CityNameWeather.main.sea_level}</div>
+      <div>  Latitude : {CityNameWeather.coord.lat}</div>
+        <div> Longitude: { CityNameWeather.coord.lon }</div>
+       <div> Country : {CityNameWeather.sys.country} </div>
     </div> }
-{Details === 'temp' && <div>
-    Temperature : { Math.round( eval( CityNameWeather.main.temp - 273 )) }
-    Maximum Temperature : {  Math.round( eval (CityNameWeather.main.temp_max  - 273))}
-    Minimum Temperature : {  Math.round( eval (CityNameWeather.main.temp_min -273 ))}
+{Details === 'temp' && <div  className='DetailsInfo' >
+ <div>   Temperature : { Math.round( eval( CityNameWeather.main.temp - 273 )) }</div>
+   <div> Maximum Temperature : {  Math.round( eval (CityNameWeather.main.temp_max  - 273))}</div>
+<div>    Minimum Temperature : {  Math.round( eval (CityNameWeather.main.temp_min -273 ))}</div>
 </div>}
-{Details === 'others' && <div>
-Humidity: {CityNameWeather.main.humidity}
-pressure: {CityNameWeather.main.pressure}
-Weather Info : {CityNameWeather.weather[0].description}
+{Details === 'others' && <div  className='DetailsInfo' >
+<div>  Humidity: {CityNameWeather.main.humidity}</div>
+ <div> pressure: {CityNameWeather.main.pressure} </div>
+<div>Weather Info : {CityNameWeather.weather[0].description}</div>
 </div>
 }  
     </div>
 }
 
 const  OptionsComponent = () =>{
-    console.log('a' > 'b')
     if(Options && !CityNameWeather ){
-        console.log('options')
-        console.log(Options)
+     
     let newArr = Options.slice(0 , 6)
     return <div> {newArr.map(item =>{
         return <div> {item.name} </div>
@@ -72,25 +69,17 @@ const CityNameChanged = (e) =>{
     setOptions([])
     setCityNameWeather(null)
 setCityName(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)) 
-db.collection('cyties').where('name','>=',  e.target.value ).get().then(snapShot =>{
-             temperaryOptions = [] 
-    snapShot.forEach(doc =>{
-        temperaryOptions.push(doc.data())
-setOptions(temperaryOptions)
-    })
-})
+
 fetchWeather(e.target.value).then(data =>{
     if(data.weather[0].main ){
-    setCityNameWeather(data) <
-    db.collection('cyties').doc(e.target.value).set({
-      name: e.target.value
-    })
+    setCityNameWeather(data) 
 }
 }).catch(err =>{
+  console.log('error:' + err)
     setCityNameWeather(false)
 })
 }
-    return (
+return (
      <div className='weatherComponent'>
 
     <div className='navBar' >  </div>
@@ -160,4 +149,4 @@ CityName === '' || CityNameWeather === false ? <div className='errContainer' > <
         </div>)
 }
 
-export default index
+export default Index
