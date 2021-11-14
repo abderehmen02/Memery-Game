@@ -2,21 +2,313 @@
   margin: 0px;
   padding: 0px;
 }
-.logo {
-  background-image: url("https://assets.turbologo.com/blog/fr/2019/09/19134216/instagram-logo-illustration-958x575.png");
-  width: 30%;
+.tab {
+  width: 70px;
+  height: 70px;
+  background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  object-fit: contain;
-  height: 40px;
+  border-radius: 8px;
+  border: 2px solid #219ebc;
+  cursor: pointer;
+}
+.tab:hover {
+  border: 3px solid #fb8500;
+  filter: grayscale(10%);
+  box-shadow: 1px 1px 1px black;
 }
 body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: bisque;
 }
-.app {
+.start {
+  display: flex;
+  font-size: 30px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.option {
+  margin: 2vh;
+}
+.smalltitle {
+  font-family: "Times New Roman", Times, serif;
+  text-transform: capitalize;
+  margin: 40px auto;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 90px;
+  color: rgb(26, 247, 26);
+  text-align: center;
+  letter-spacing: 5px;
+  margin-top: 40px;
+  font-family: Times, serif;
+  font-size: 1.76em;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 5px;
+  text-shadow: 3px 3px 20px #050505, -2px 1px 30px #0d0d0e;
+}
+.apptitle {
+  text-transform: capitalize;
+  margin: 40px auto;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1rem;
+  color: rgb(39, 243, 39);
+  text-align: center;
+  letter-spacing: 5px;
+  text-shadow: black 0 0 15px, black 0 0 10px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 10px;
+  font-weight: bolder;
+}
+.option {
+  border-radius: 10px;
+  font-size: 1em;
+  border: 3px solid black;
+  font-weight: bolder;
+  text-shadow: 2px 2px 3px black;
+  box-shadow: 1px 2px 5px black;
+}
+ul {
+  width: 70%;
+}
+.option:hover {
+  color: white;
+  text-shadow: 2px 2px 6px black;
+  border: 3px solid green;
+  box-shadow: 3px 3px 10px black;
+}
+.mainapp {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+.table {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 0.6em;
+  border: 2px solid #219ebc;
+  border-radius: 20px;
+  background-color: #8ecae6;
+  justify-content: space-around;
+  padding: 5px;
+  box-shadow: 2px 2px 5px black;
+}
+.grad {
+  color: #0ca6ee;
+  text-transform: capitalize;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bolder;
+  font-size: 1.2em;
+  display: flex;
+  border: 2px groove #0ca6ee;
+  padding: 0.25em;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px black;
+  align-items: center;
+  justify-content: center;
+  margin: 5vh;
+  text-shadow: 3px 3px 5px black;
+}
+.value {
+  color: rgb(12, 247, 12);
+  text-shadow: 2px 2px 5px rgb(12, 133, 247);
+  text-align: center;
+}
+.eyebtn {
+  width: 65px;
+  height: 50px;
+  background-image: url("https://i2.wp.com/www.al9or.net/wp-content/uploads/%D8%B1%D8%B3%D9%85%D8%A9-%D8%B9%D9%8A%D9%88%D9%86.gif?fit=718%2C491&ssl=1%D8%AF");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 2px solid rgb(57, 235, 13);
+  box-shadow: 2px 2px 5px green;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px rgb(12, 133, 247);
+  margin-bottom: 10px;
+}
+.eyebtn:hover {
+  box-shadow: 2px 5px 10px;
+  box-decoration-break: slice;
+  border: 2px groove rgb(26, 224, 238);
+}
+.tabletimer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.timevalues {
+  font-weight: bolder;
+  font-size: 2em;
+  font-family: "Times New Roman", Times, serif;
+  margin: 5vw;
+  border: 2px solid rgb(12, 133, 247);
+  padding: 5px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px rgb(12, 133, 247);
+  min-width: 5.6em;
+}
+.level {
+  font-weight: bolder;
+  font-size: 2em;
+  display: inline;
+  font-family: "Times New Roman", Times, serif;
+  margin: 5vw;
+  border: 2px solid rgb(12, 133, 247);
+  padding: 5px;
+  min-width: 5.6em;
+  text-transform: capitalize;
+  text-overflow: ellipsis;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px rgb(12, 133, 247);
+}
+.eyescontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.invisible {
+  visibility: hidden;
+}
+.finish-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+.win {
+  color: #0cee0c;
+  font-weight: bolder;
+  font-family: "Times New Roman", Times, serif;
+  text-shadow: 2px 2px 5px rgb(11, 12, 10);
+  justify-self: start;
+  margin: 20px;
+}
+.descreption {
+  color: #0ca6ee;
+  font-family: "Courier New", Courier, monospace;
+  font-size: larger;
+  font-weight: bolder;
+  text-align: center;
+  margin: 30px;
+  text-shadow: 1px 1px 3px black;
+  box-shadow: 2px 5px 5px black;
+}
+
+.restart-btn {
+  color: rgb(218, 215, 61);
+  background-color: black;
+  box-shadow: 2px 3px 5px yellow;
+  font-size: 1.8em;
+  font-family: "Times New Roman", Times, serif;
+  margin: 50px;
+  padding: 5px;
+  width: 80%;
+  border-radius: 10px;
+  min-width: 20vw;
+}
+.restart-btn:hover {
+  background-color: rgb(0, 89, 255);
+  color: black;
+  box-shadow: 2px 2px 3px black;
+  border: none;
+}
+.average {
+  color: black;
+  text-shadow: 2px 2px 3px rgb(44, 248, 44);
+  font-weight: bolder;
+}
+.try {
+  display: none;
+}
+.hard:hover {
+  border: 2px solid orangered;
+}
+@media (max-width: 670px) {
+  .apptitle {
+    display: none;
+  }
+  .grad {
+    font-size: 1em;
+  }
+  .timevalues {
+    font-size: 1em;
+  }
+  .table {
+    /* display: grid; */
+    /* grid-template-columns: repeat(5, auto); */
+    grid-gap: 0px;
+    /* border: 1px solid #219ebc;
+    border-radius: 20px;
+    background-color: #8ecae6;
+    justify-content: space-around;
+    padding: 2px;
+    box-shadow: 2px 2px 5px black; */
+  }
+
+  .scorevalue {
+    font-size: 20px;
+  }
+  .level {
+    font-size: 1em;
+  }
+  .grad {
+    color: black;
+    text-transform: none;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 1em;
+    border: none;
+    padding: 0px;
+    border-radius: 0px;
+    box-shadow: none;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    text-shadow: 3px 3px 5px black;
+  }
+  .text {
+    display: none;
+  }
+  .grad > h3 > span {
+    color: red;
+    font-size: larger;
+  }
+  .smalltitle {
+    font-size: 1.3em;
+  }
+  .timevalues {
+    background-color: black;
+  }
+  .level {
+    background-color: black;
+  }
+  .btn {
+    font-size: 0.8em;
+  }
+  .restart-btn {
+    border: 2px solid rgb(19, 117, 230);
+    color: rgb(51, 235, 27);
+    background-color: black;
+  }
+  .average {
+    font-weight: bolder;
+  }
+}
+.hardGrid {
+  display: grid;
+  grid-template-columns: repeat(10, auto);
 }
