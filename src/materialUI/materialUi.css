@@ -1,0 +1,14 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+.rank {
+  display: flex;
+  flex-direction: row;
+  border: 28px solid black;
+  box-shadow: 2px 2px 2px black;
+  margin: 10px;
+}
