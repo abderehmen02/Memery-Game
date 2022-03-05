@@ -101,7 +101,7 @@ let IntermediateTabs = [{name:'horse' , id : 1 , status : false, eye: false , im
 ]
 let IntermediateShuffeledArray = IntermediateTabs.sort(()=> Math.random() - 0.5)
 let firstSuffeledArray 
-//let firstSuffeledArray = allTabs.sort((a, b) => 0.5 - Math.random()) 
+
 console.log('app rendered') 
 console.log(firstSuffeledArray)
 let finished = false ;
@@ -141,9 +141,7 @@ GameKind = 'hard'
 const Intermediate = ()=>{
   GameKind = 'intermediate'
 firstSuffeledArray = IntermediateShuffeledArray
-  console.log('intermediate rendered')
-  console.log(firstSuffeledArray)
-    console.log(firstSuffeledArray)
+
 return <div>
     <App firstSuffeledArray={firstSuffeledArray}/>
   </div>
@@ -234,7 +232,7 @@ if(ClickedObjectSimilar.every(item =>{
     setClickedTabs([...ClickedTabs , clickedObject])
 }
 const restart = ()=>{
-  // firstSuffeledArray = allTabs.sort((a, b) => 0.5 - Math.random())
+  
    setShuffeledArray(firstSuffeledArray)
    setLevel(0)
    setEyes(2) } 
@@ -279,7 +277,7 @@ return(
 <LevelComponent/> <ScoreComponent/>
 <TimerSet/>  </div>
  
-  {/* <div className="invisible"><TimerSet/></div> */}
+
 <Table/> 
  
 <Eyes/> 
